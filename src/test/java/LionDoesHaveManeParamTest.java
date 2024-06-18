@@ -1,5 +1,6 @@
 import com.example.Feline;
 import com.example.Lion;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,12 +36,12 @@ public void setUp() {
 public void doesHaveManeParamTest() throws Exception {
     Lion lion = new Lion(feline, sex);
 
-    lion.doesHaveMane();
+    boolean expected = lion.doesHaveMane();
 
-}
+    Assert.assertEquals(expected, doesHaveMane);
 
 
-
+        }
 
 
 }

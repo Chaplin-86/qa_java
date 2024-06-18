@@ -1,27 +1,31 @@
 import com.example.Feline;
 import com.example.Lion;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
 
 @RunWith( Parameterized.class)
 public class LionGetKittensParamTest{
 
-    @Mock
-    private Feline feline;
+@Mock
+Feline feline;
+
 
 @Parameterized.Parameter
 public String sex;
 @Parameterized.Parameter(1)
-public int getKittens;
+public int kittensCount;
 
 @Parameterized.Parameters
 public static Object[][] data() {
     return new Object[][] {
-            {"Самец", 0},
+            {"Самец", 1},
             {"Самка", 1}
     };
 }
@@ -35,7 +39,11 @@ public void setUp() {
     public void getKittensParamTest() throws Exception {
     Lion lion = new Lion(feline, sex);
 
-    lion.getKittens();
+    int expected = 1;
+    Mockito.when(feline.getKittens()).thenReturn(1);
+    int actual = lion.getKittens();
+
+    Assert.assertEquals(expected, actual);
 
 }
 

@@ -1,6 +1,5 @@
 import com.example.Feline;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -26,7 +25,6 @@ public class FelineTest {
     public void eatMeatTest() throws Exception {
         List<String> eatMeatExpected = List.of("Животные", "Птицы", "Рыбы");
         Mockito.when(feline.getFood("Хищник")).thenReturn(eatMeatExpected);
-        //Feline feline = new Feline();
         List<String> eatMeatActual = feline.eatMeat();
         Assert.assertEquals(eatMeatExpected, eatMeatActual);
 

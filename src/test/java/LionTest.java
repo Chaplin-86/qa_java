@@ -50,8 +50,9 @@ public class LionTest {
         try {
         Lion lion = new Lion(feline, "Симба");
         lion.getFood();
+        Assert.fail("Expected exception");
         } catch (Exception exception) {
-        System.out.println("Используйте допустимые значения пола животного - самец или самка");
+            Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
         }
 
     }
@@ -68,15 +69,16 @@ public class LionTest {
 
         Assert.assertEquals(expected, actual);
 
+
     }
 
     @Test
     public void getKittensMaleTest() throws Exception {
         Lion lion = new Lion (feline, "Самец");
 
-        int expected = 0;
+        int expected = 1;
 
-        Mockito.when(feline.getKittens()).thenReturn(0);
+        Mockito.when(feline.getKittens()).thenReturn(1);
 
         int actual = lion.getKittens();
 
@@ -90,8 +92,9 @@ public class LionTest {
         try {
             Lion lion = new Lion(feline, "Симба");
             lion.getKittens();
+            Assert.fail("Expected exception");
         } catch (Exception exception) {
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
+            Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
         }
 
     }
@@ -124,8 +127,9 @@ public class LionTest {
         try {
             Lion lion = new Lion(feline, "Симба");
             lion.doesHaveMane();
+            Assert.fail("Expected exception");
         } catch (Exception exception) {
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
+            Assert.assertEquals("Используйте допустимые значения пола животного - самец или самка", exception.getMessage());
         }
 
     }
